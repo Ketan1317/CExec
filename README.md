@@ -1,28 +1,32 @@
-syncforge/
-│
-├── src/
-│   ├── main.c
-│   ├── server.c
-│   ├── client.c
-│   ├── file.c
-│   ├── thread_pool.c
-│   ├── queue.c
-│   ├── hash_table.c
-│   └── protocol.c
-│
-├── include/
-│   ├── server.h
-│   ├── client.h
-│   ├── file.h
-│   ├── thread_pool.h
-│   ├── queue.h
-│   ├── hash_table.h
-│   └── protocol.h
-│
-├── storage/
-│   └── .gitkeep
-│
-├── Makefile
-├── .gitignore
-├── LICENSE
-└── README.md
+# SyncForge
+
+A multithreaded file transfer and synchronization system
+built using C and Linux.
+
+## Features
+
+- TCP file transfer
+- Multiple clients
+- Thread pool
+- Producer-consumer queue
+- File upload/download
+- Hash table based file index
+- Linux filesystem APIs
+
+## Requirements
+
+- Linux
+- GCC
+- pthread
+
+## Build
+
+make
+
+## Run Server
+
+./syncforge server 8080
+
+## Run Client
+
+./syncforge client 127.0.0.1 8080
