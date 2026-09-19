@@ -267,11 +267,11 @@ int main(void) {
 
   // compile source code
   char executable[512];
-  snprintf(executable, sizeof(executable), "submissions/program");
+  snprintf(executable, sizeof(executable), "storage/program");
 
   char compile_command[2048];
   snprintf(compile_command, sizeof(compile_command),
-           "gcc %s -o %s 2> submissions/error.txt", filepath, executable);
+           "gcc %s -o %s 2> storage/error.txt", filepath, executable);
 
   printf("Compiling...\n");
 
@@ -280,7 +280,7 @@ int main(void) {
   if (compile_result != 0) {
     printf("Compilation failed. \n");
 
-    int error_file_fd = open("submissions/error.txt", O_RDONLY);
+    int error_file_fd = open("storage/error.txt", O_RDONLY);
     if (error_file_fd < 0) {
       printf("Error in Opening a file");
       close(server_fd);
@@ -320,14 +320,14 @@ int main(void) {
   printf("Running program...\n");
 
   char run_command[1024];
-  snprintf(run_command, sizeof(run_command), "%s > submissions/output.txt 2>&1",
+  snprintf(run_command, sizeof(run_command), "%s > storage/output.txt 2>&1",
            executable);
 
   // 2>&1 means: stderr -> stdout
   // So both normal output and errors go into output.txt.
 
   int run_result = system(run_command);
-  int output_file_fd = open("submissions/output.txt", O_RDONLY);
+  int output_file_fd = open("storage/output.txt", O_RDONLY);
 
   if (output_file_fd < 0) {
     perror("fopen");
