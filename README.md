@@ -1,32 +1,6 @@
-# SyncForge
+# CExec
 
-A multithreaded file transfer and synchronization system
-built using C and Linux.
+### CExec is a Linux-based C code execution server built from scratch using C and POSIX APIs.
 
-## Features
+Clients send C source files over TCP. The server stores, compiles, executes, and returns the program output while handling multiple clients concurrently.
 
-- TCP file transfer
-- Multiple clients
-- Thread pool
-- Producer-consumer queue
-- File upload/download
-- Hash table based file index
-- Linux filesystem APIs
-
-## Requirements
-
-- Linux
-- GCC
-- pthread
-
-## Build
-
-make
-
-## Run Server
-
-./syncforge server 8080
-
-## Run Client
-
-./syncforge client 127.0.0.1 8080
